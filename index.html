@@ -156,123 +156,6 @@
       h1 { font-size: 2rem; }
       .current-date { font-size: 1.3rem; }
     }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: 10% auto;
-      padding: 0;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    .modal-header {
-      padding: 1rem 1.5rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: white;
-      border-radius: 12px 12px 0 0;
-    }
-
-    .modal-body {
-      padding: 1.5rem;
-    }
-
-    .close {
-      color: white;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover {
-      opacity: 0.7;
-    }
-
-    .pomodoro-controls {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .pomodoro-controls button {
-      padding: 0.7rem 1rem;
-      border: none;
-      border-radius: 8px;
-      background: #3182ce;
-      color: white;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s;
-    }
-
-    .pomodoro-controls button:hover {
-      background: #2b6cb0;
-    }
-
-    .timer-display {
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-      margin: 1rem 0;
-      color: #2c5282;
-    }
-
-    .timer-controls {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .timer-controls button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      background: #e53e3e;
-      color: white;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .timer-controls button:hover {
-      background: #c53030;
-    }
-
-    .slot-card.completed {
-      opacity: 0.6;
-      position: relative;
-    }
-
-    .slot-card.completed::after {
-      content: "✓";
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #38a169;
-      color: white;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -291,27 +174,6 @@
 
     <div class="schedule-grid" id="scheduleContainer">
       <!-- Cards will be generated here by JavaScript -->
-    </div>
-  </div>
-
-  <!-- Modal for slot details and Pomodoro -->
-  <div id="slotModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div id="modalHeader" class="modal-header"></div>
-      <div id="modalBody" class="modal-body">
-        <div id="slotDetails"></div>
-        <div class="pomodoro-controls">
-          <button id="startStudyBtn">Start 45min Study</button>
-          <button id="startBreakBtn">Start 15min Break</button>
-          <button id="markCompletedBtn">Mark Completed</button>
-        </div>
-        <div id="timerDisplay" class="timer-display">00:00:00</div>
-        <div class="timer-controls">
-          <button id="pauseResumeBtn" disabled>Pause</button>
-          <button id="stopTimerBtn" disabled>Stop</button>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -597,29 +459,6 @@
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
 
-    // Modal elements
-    const modal = document.getElementById("slotModal");
-    const modalHeader = document.getElementById("modalHeader");
-    const modalBody = document.getElementById("modalBody");
-    const slotDetails = document.getElementById("slotDetails");
-    const startStudyBtn = document.getElementById("startStudyBtn");
-    const startBreakBtn = document.getElementById("startBreakBtn");
-    const markCompletedBtn = document.getElementById("markCompletedBtn");
-    const timerDisplay = document.getElementById("timerDisplay");
-    const pauseResumeBtn = document.getElementById("pauseResumeBtn");
-    const stopTimerBtn = document.getElementById("stopTimerBtn");
-    const closeBtn = document.querySelector(".close");
-
-    // Timer variables
-    let timerInterval;
-    let remainingTime = 0;
-    let isPaused = false;
-    let currentSlot = null;
-
-    // Completed slots storage
-    const COMPLETED_KEY = "completedSlots";
-    let completedSlots = new Set(JSON.parse(localStorage.getItem(COMPLETED_KEY) || "[]"));
-
     function formatDate(date) {
       return date.toLocaleDateString("en-US", {
         weekday: "long",
@@ -650,13 +489,9 @@
         return;
       }
 
-      slots.forEach((slot, index) => {
+      slots.forEach(slot => {
         const card = document.createElement("div");
         card.className = "slot-card";
-        const slotKey = `${dateKey}-${index}`;
-        if (completedSlots.has(slotKey)) {
-          card.classList.add("completed");
-        }
 
         card.innerHTML = `
           <div class="slot-header ${slot.type}">${slot.type.toUpperCase()} FOCUS</div>
@@ -668,106 +503,9 @@
           </div>
         `;
 
-        // Add click event to open modal
-        card.addEventListener("click", () => openModal(slot, index, dateKey));
-
         scheduleContainer.appendChild(card);
       });
     }
-
-    // Modal functions
-    function openModal(slot, index, dateKey) {
-      currentSlot = { slot, index, dateKey };
-      modalHeader.className = `modal-header ${slot.type}`;
-      modalHeader.textContent = `${slot.type.toUpperCase()} FOCUS`;
-      slotDetails.innerHTML = `
-        <div class="slot-title">${slot.title}</div>
-        <div class="slot-desc">${slot.desc}</div>
-        <div class="time">${slot.time}</div>
-        <div class="location">📍 Home Study</div>
-      `;
-      modal.style.display = "block";
-      resetTimer();
-    }
-
-    function closeModal() {
-      modal.style.display = "none";
-      stopTimer();
-      currentSlot = null;
-    }
-
-    // Timer functions
-    function startTimer(duration) {
-      remainingTime = duration * 60; // in seconds
-      isPaused = false;
-      updateTimerDisplay();
-      timerInterval = setInterval(() => {
-        if (!isPaused) {
-          remainingTime--;
-          updateTimerDisplay();
-          if (remainingTime <= 0) {
-            clearInterval(timerInterval);
-            alert("Time's up!");
-            resetTimer();
-          }
-        }
-      }, 1000);
-      pauseResumeBtn.disabled = false;
-      stopTimerBtn.disabled = false;
-      pauseResumeBtn.textContent = "Pause";
-    }
-
-    function updateTimerDisplay() {
-      const hours = Math.floor(remainingTime / 3600);
-      const minutes = Math.floor((remainingTime % 3600) / 60);
-      const seconds = remainingTime % 60;
-      timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    }
-
-    function pauseResumeTimer() {
-      isPaused = !isPaused;
-      pauseResumeBtn.textContent = isPaused ? "Resume" : "Pause";
-    }
-
-    function stopTimer() {
-      clearInterval(timerInterval);
-      resetTimer();
-    }
-
-    function resetTimer() {
-      clearInterval(timerInterval);
-      remainingTime = 0;
-      isPaused = false;
-      updateTimerDisplay();
-      pauseResumeBtn.disabled = true;
-      stopTimerBtn.disabled = true;
-      pauseResumeBtn.textContent = "Pause";
-    }
-
-    // Completed function
-    function markCompleted() {
-      if (currentSlot) {
-        const slotKey = `${currentSlot.dateKey}-${currentSlot.index}`;
-        completedSlots.add(slotKey);
-        localStorage.setItem(COMPLETED_KEY, JSON.stringify([...completedSlots]));
-        renderDay(); // Re-render to show completed
-        closeModal();
-      }
-    }
-
-    // Event listeners for modal
-    closeBtn.addEventListener("click", closeModal);
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-
-    startStudyBtn.addEventListener("click", () => startTimer(45));
-    startBreakBtn.addEventListener("click", () => startTimer(15));
-    markCompletedBtn.addEventListener("click", markCompleted);
-    pauseResumeBtn.addEventListener("click", pauseResumeTimer);
-    stopTimerBtn.addEventListener("click", stopTimer);
 
     // Navigation
     prevBtn.addEventListener("click", () => {
