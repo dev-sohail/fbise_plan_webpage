@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FBISE Study Plan 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2c5282;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+    }
+
+    .today-info {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .date-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .date-nav button {
+      padding: 0.7rem 1.4rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: #3182ce;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .date-nav button:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+    }
+
+    .date-nav button:disabled {
+      background: #a0aec0;
+      cursor: not-allowed;
+    }
+
+    .current-date {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2c5282;
+      align-self: center;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .slot-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .slot-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .slot-header {
+      padding: 1rem 1.5rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .high { background: #e53e3e; }
+    .medium { background: #dd6b20; }
+    .light { background: #3182ce; }
+
+    .slot-body {
+      padding: 1.5rem;
+    }
+
+    .slot-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      color: #2d3748;
+    }
+
+    .slot-desc {
+      color: #4a5568;
+      margin-bottom: 1rem;
+    }
+
+    .time {
+      font-weight: 600;
+      color: #2c5282;
+    }
+
+    .location {
+      font-style: italic;
+      color: #718096;
+      font-size: 0.95rem;
+    }
+
+    .empty-day {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      font-size: 1.4rem;
+      color: #718096;
+      background: rgba(255,255,255,0.7);
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #718096;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .current-date { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FBISE Study Plan 2026</h1>
+    <p class="today-info">Intensive 8-Week Preparation • Math & Physics Focus</p>
+  </header>
+
+  <div class="container">
+    <div class="date-nav">
+      <button id="prevBtn">← Previous Day</button>
+      <span class="current-date" id="currentDateDisplay">January 06, 2026</span>
+      <button id="nextBtn">Next Day →</button>
+    </div>
+
+    <div class="schedule-grid" id="scheduleContainer">
+      <!-- Cards will be generated here by JavaScript -->
+    </div>
+  </div>
+
+  <footer>
+    Made with 💪 for your success • Start Date: Jan 1, 2026 • Exam around Feb 22, 2026
+  </footer>
+
+  <script>
+    // === Your Schedule Data (simplified version - you can expand it) ===
+    const schedule = [
+      // Week 1
+      { date: "2026-01-01", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 1 (Ex 1.1, 1.2)", desc: "HIGH FOCUS • Week 1 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Ch 15 - Gravitation", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Kamal Nafs", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-02", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 1 (Ex 1.3, 1.4)", desc: "HIGH FOCUS • Week 1 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "CS: Ch 1 - Computer Systems", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "English: Lingkuan Gorge", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-03", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 16 - Stat Mechanics", desc: "HIGH FOCUS • Week 1 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 1 (Ex 1.5, Review)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Ideology", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-04", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 2 (Ex 2.1, 2.2)", desc: "HIGH FOCUS • Week 1 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Ch 17 - SHM", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Muhshar, Maa Jee", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-05", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 18 - Diffraction", desc: "HIGH FOCUS • Week 1 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: Population Explosion", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "CS: Ch 2 - Thinking", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-06", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 2 (Ex 2.3, 2.4)", desc: "HIGH FOCUS • Week 1 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Pak Studies: Political Dev", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: Week 1 Math & Phy", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-07", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER DAY / REVISION / REST", desc: "HIGH FOCUS • Week 1 - Sun" }
+      ]},
+
+      // Week 2
+      { date: "2026-01-08", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 2 (Ex 2.5, 2.6)", desc: "HIGH FOCUS • Week 2 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Ch 19 - Electric Potential", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Hamd, Naat", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-09", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 20 - AC Circuits", desc: "HIGH FOCUS • Week 2 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 2 (Ex 2.7, 2.8)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "English: Income-Tax Man", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-10", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 2 (Ex 2.9, 2.10, Review)", desc: "HIGH FOCUS • Week 2 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "CS: Ch 3 - Programming", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Land Resources", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-11", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 21 - Quantum Physics", desc: "HIGH FOCUS • Week 2 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 3 (Ex 3.1, 3.2)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Rustam o Sohrab", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-12", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 3 (Ex 3.3, 3.4)", desc: "HIGH FOCUS • Week 2 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: Rubaiyat", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: Ch 1 All Subjects", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-13", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 22 - Nuclear", desc: "HIGH FOCUS • Week 2 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Pak Studies: Vegetation & Wildlife", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "CS: Ch 4 - Data Analysis", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-14", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER DAY / REVISION / REST", desc: "HIGH FOCUS • Week 2 - Sun" }
+      ]},
+
+      // Week 3
+      { date: "2026-01-15", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 3 (Ex 3.5, 3.6)", desc: "HIGH FOCUS • Week 3 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Ch 23 - Cosmology", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Jug mein aakar", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-16", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 24 - Earth's Climate", desc: "HIGH FOCUS • Week 3 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 3 (Ex 3.7, 3.8)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "English: The Blanket", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-17", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 3 (Ex 3.9, Review)", desc: "HIGH FOCUS • Week 3 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "CS: Ch 5 - CS Applications", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Minerals", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-18", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Ch 25 - Medical Imaging", desc: "HIGH FOCUS • Week 3 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 4 (Ex 4.1, 4.2)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Shaakhon par", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-19", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 4 (Ex 4.3, 4.4, Review)", desc: "HIGH FOCUS • Week 3 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: Stay Hungry Stay Foolish", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: Ch 2 All", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-20", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Revision Ch 15-17", desc: "HIGH FOCUS • Week 3 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Pak Studies: Industry & Trade", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "CS: Ch 6 - Computing Impacts", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-21", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER DAY / REVISION / REST", desc: "HIGH FOCUS • Week 3 - Sun" }
+      ]},
+
+      // Week 4
+      { date: "2026-01-22", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 5 (Ex 5.1, 5.2, 5.3)", desc: "HIGH FOCUS • Week 4 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Revision Ch 18-20", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Mein Roze se hun", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-23", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Numericals Practice 15-20", desc: "HIGH FOCUS • Week 4 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 6 (Ex 6.1, 6.2)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "English: Tobacco", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-24", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 6 (Ex 6.3, Review)", desc: "HIGH FOCUS • Week 4 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "CS: Ch 7 - Digital Literacy", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Integration", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-25", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Physics: Numericals Practice 21-25", desc: "HIGH FOCUS • Week 4 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Math: Ch 7 (Ex 7.1, 7.2)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Shuru Qissa", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-26", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 7 (Ex 7.3, 7.4)", desc: "HIGH FOCUS • Week 4 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: The Sea", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Tourism", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-27", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "MID-TERM REVISION: Math Ch 1-4", desc: "HIGH FOCUS • Week 4 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "MID-TERM REVISION: Physics 15-20", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: Ch 3 All", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-28", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER / COMPREHENSIVE REVISION", desc: "HIGH FOCUS • Week 4 - Sun" }
+      ]},
+
+      // Week 5
+      { date: "2026-01-29", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 7 (Ex 7.5, 7.6)", desc: "HIGH FOCUS • Week 5 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Ch 26 - Nature of Science", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Sab kahan", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-30", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 7 (Ex 7.7, 7.8)", desc: "HIGH FOCUS • Week 5 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: First Year at Harrow", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Constitution", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-01-31", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 7 (Ex 7.9, 7.10, Review)", desc: "HIGH FOCUS • Week 5 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "CS: Ch 8 - Entrepreneurship", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Kaafi, Minar", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-01", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 8 (Ex 8.1, 8.2)", desc: "HIGH FOCUS • Week 5 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Formula Revision All", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "English: New Planet", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-02", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 8 (Ex 8.3, Review)", desc: "HIGH FOCUS • Week 5 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Pak Studies: Rights & Duties", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: Ch 4 & 5", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-03", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 9 (Ex 9.1, 9.2)", desc: "HIGH FOCUS • Week 5 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Past Paper A", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Insan Kamil", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-04", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER DAY / REVISION / REST", desc: "HIGH FOCUS • Week 5 - Sun" }
+      ]},
+
+      // Week 6
+      { date: "2026-02-05", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 9 (Ex 9.3, Review)", desc: "HIGH FOCUS • Week 6 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: Harvest Hymn", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Foreign Policy", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-06", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 10 (Ex 10.1, 10.2)", desc: "HIGH FOCUS • Week 6 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Past Paper B", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Nazariya Pakistan", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-07", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Ch 10 (Review Ex 10)", desc: "HIGH FOCUS • Week 6 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: Kaghan Valley", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Pak Studies: Intl. Organizations", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-08", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Complete Revision Ch 8-10", desc: "HIGH FOCUS • Week 6 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Physics: Full Past Paper", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Urdu: Sitaroon se aage", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-09", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Math: Past Paper Practice", desc: "HIGH FOCUS • Week 6 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "English: After 20 Years", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Revision: All Pak Studies", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-10", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "REVISION: Math Ch 5-7", desc: "HIGH FOCUS • Week 6 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "REVISION: Physics Ch 21-26", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "REVISION: All Urdu Ghazals", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-11", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER DAY / REVISION / REST", desc: "HIGH FOCUS • Week 6 - Sun" }
+      ]},
+
+      // Week 7
+      { date: "2026-02-12", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "TEST: Math Ch 1-5", desc: "HIGH FOCUS • Week 7 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "TEST: Physics Ch 15-20", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Review & Mark Answers", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-13", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "TEST: English Complete", desc: "HIGH FOCUS • Week 7 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "TEST: Pak Studies 1-6", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Review & Mark Answers", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-14", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "TEST: Math Ch 6-10", desc: "HIGH FOCUS • Week 7 - Wed" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "TEST: Physics Ch 21-26", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Review & Mark Answers", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-15", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "TEST: Urdu Complete", desc: "HIGH FOCUS • Week 7 - Thu" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "TEST: CS Complete", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Review & Mark Answers", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-16", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Focus: Weak Areas (Math)", desc: "HIGH FOCUS • Week 7 - Fri" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Focus: Weak Areas (Physics)", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Past Paper Practice", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-17", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Revision: English Poems & Essays", desc: "HIGH FOCUS • Week 7 - Sat" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Revision: Urdu Nazm & Ghazal", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Formula Revision All Subjects", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-18", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "BUFFER / FULL REVISION DAY", desc: "HIGH FOCUS • Week 7 - Sun" }
+      ]},
+
+      // Week 8 - Final Days
+      { date: "2026-02-19", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Final Review: Math Key Chapters", desc: "HIGH FOCUS • Week 8 - Mon" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Final Review: Physics Key Topics", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Final Review: English", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-20", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "Final Review: Pak Studies", desc: "HIGH FOCUS • Week 8 - Tue" },
+        { type: "medium", time: "02:00 PM - 03:30 PM", title: "Final Review: Urdu Complete", desc: "MEDIUM FOCUS" },
+        { type: "light",  time: "07:00 PM - 08:30 PM", title: "Final Review: CS", desc: "LIGHT FOCUS" }
+      ]},
+      { date: "2026-02-21", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "LIGHT REVIEW & CONFIDENCE BUILDING", desc: "HIGH FOCUS • Week 8 - Wed" }
+      ]},
+      { date: "2026-02-22", slots: [
+        { type: "high",   time: "09:00 AM - 11:00 AM", title: "EXAM DAY - YOU'VE GOT THIS!", desc: "HIGH FOCUS • Week 8 - Thu" }
+      ]}
+    ];
+
+    // Convert to Map for fast lookup
+    const scheduleMap = new Map(schedule.map(item => [item.date, item.slots]));
+
+    // Current date we are showing
+    let currentDate = new Date("2026-01-06");
+
+    const displayDate = document.getElementById("currentDateDisplay");
+    const scheduleContainer = document.getElementById("scheduleContainer");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function formatDate(date) {
+      return date.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    }
+
+    function getDateKey(date) {
+      return date.toISOString().split("T")[0]; // yyyy-mm-dd
+    }
+
+    function renderDay() {
+      const dateKey = getDateKey(currentDate);
+      const slots = scheduleMap.get(dateKey);
+
+      displayDate.textContent = formatDate(currentDate);
+
+      // Disable buttons at edges (simple version)
+      prevBtn.disabled = currentDate <= new Date("2026-01-01");
+      nextBtn.disabled = currentDate >= new Date("2026-02-22");
+
+      scheduleContainer.innerHTML = "";
+
+      if (!slots || slots.length === 0) {
+        scheduleContainer.innerHTML = `<div class="empty-day">No study scheduled for this day<br>(Buffer / Rest / Revision Day?)</div>`;
+        return;
+      }
+
+      slots.forEach(slot => {
+        const card = document.createElement("div");
+        card.className = "slot-card";
+
+        card.innerHTML = `
+          <div class="slot-header ${slot.type}">${slot.type.toUpperCase()} FOCUS</div>
+          <div class="slot-body">
+            <div class="slot-title">${slot.title}</div>
+            <div class="slot-desc">${slot.desc}</div>
+            <div class="time">${slot.time}</div>
+            <div class="location">📍 Home Study</div>
+          </div>
+        `;
+
+        scheduleContainer.appendChild(card);
+      });
+    }
+
+    // Navigation
+    prevBtn.addEventListener("click", () => {
+      currentDate.setDate(currentDate.getDate() - 1);
+      renderDay();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentDate.setDate(currentDate.getDate() + 1);
+      renderDay();
+    });
+
+    // Initial render
+    renderDay();
+  </script>
+</body>
+</html>
