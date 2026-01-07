@@ -425,6 +425,10 @@
     .sync-status.success { color: var(--success); }
     .sync-status.error { color: var(--high); }
 
+    #jsonbinStatus.syncing { color: var(--warning); }
+    #jsonbinStatus.success { color: var(--success); }
+    #jsonbinStatus.error { color: var(--high); }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -448,7 +452,7 @@
 </head>
 <body>
   <header>
-    <span id="jsonbinStatus">JSONBIN Status</span>
+    <!-- <span id="jsonbinStatus">JSONBIN Status</span> -->
     <h1>FBISE Study Plan 2026</h1>
     <p class="subtitle">8-Week Intensive • Math & Physics Focus</p>
   </header>
@@ -805,6 +809,7 @@
     const dateDisplay = document.getElementById('dateDisplay');
     const progressSummary = document.getElementById('progressSummary');
     const syncStatus = document.getElementById('syncStatus');
+    const jsonbinStatus = document.getElementById('jsonbinStatus');
     const catchUp = document.getElementById('catchUp');
     const catchUpList = document.getElementById('catchUpList');
     const modal = document.getElementById('modal');
@@ -896,13 +901,19 @@
     function updateSyncStatus(type, message) {
       syncStatus.textContent = message;
       syncStatus.className = `sync-status ${type}`;
-      
+
+      // Also update header status
+      jsonbinStatus.textContent = message;
+      jsonbinStatus.className = type;
+
       // Clear success messages after 3 seconds
       if (type === 'success') {
         setTimeout(() => {
           if (syncStatus.className.includes('success')) {
             syncStatus.textContent = '';
             syncStatus.className = 'sync-status';
+            jsonbinStatus.textContent = 'JSONBIN Status';
+            jsonbinStatus.className = '';
           }
         }, 3000);
       }
@@ -1259,6 +1270,7 @@
 
     // ==================== INITIALIZATION ====================
     updateDateDisplay();
+    updateSyncStatus('', 'Loading...');
     loadProgress(); // This will call renderGrid() when done
 
     // Initial render with local data while loading cloud data
