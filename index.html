@@ -754,7 +754,7 @@
       </div>
     </div>
 
-    <!-- <div class="roadmap-btn-container"><button id="roadmapBtn" class="roadmap-btn">🧭 Show Study Roadmap</button></div> -->
+    <div class="roadmap-btn-container" style="display: none;"><button id="roadmapBtn" class="roadmap-btn">🧭 Show Study Roadmap</button></div>
 
     <div id="roadmapModal" class="roadmap-modal hidden">
       <div class="roadmap-container">
@@ -2424,7 +2424,7 @@
         },
       ];
       
-      const schedule = [{
+      const schedule2 = [{
           "date": "2026-01-01",
           "slots": [{
               "type": "high",
@@ -4228,7 +4228,8 @@
           ]
         }
       ]
-      const schedule3 = [{
+      
+      const schedule = [{
           "date": "2026-01-01",
           "slots": [{
               "type": "high",
@@ -5534,6 +5535,7 @@
           }]
         }
       ]
+      
       // Fast lookup map - O(1) access
       const scheduleMap = new Map();
       schedule.forEach((item) => scheduleMap.set(item.date, item.slots));
