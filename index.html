@@ -3941,7 +3941,8 @@
         });
       }
       // ==================== STATE ====================
-      let currentDate = new Date("2026-01-06");
+      let currentDate = new Date();
+      currentDate.setHours(0, 0, 0, 0);
       let timerInterval = null;
       let remainingTime = 0;
       let isPaused = false;
@@ -3999,7 +4000,7 @@
         const dateStr = formatDate(currentDate);
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const isToday = getDateKey(currentDate) === getDateKey(today);
+        const isToday = currentDate.getTime() === today.getTime();
         dateDisplay.textContent = isToday ?
           `📅 Today • ${dateStr}` :
           `📅 ${dateStr}`;
