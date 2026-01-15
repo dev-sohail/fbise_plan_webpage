@@ -632,7 +632,7 @@
         position: relative;
       }
 
-      .close-btn {
+      .roadmap-close-btn {
         position: absolute;
         top: 12px;
         right: 15px;
@@ -758,7 +758,7 @@
 
     <div id="roadmapModal" class="roadmap-modal hidden">
       <div class="roadmap-container">
-        <span id="closeRoadmap" class="close-btn" style="color:black;">✖</span>
+        <span id="closeRoadmap" class="roadmap-close-btn" style="color:black;">✖</span>
         <h2>📘 Study Journey Roadmap</h2>
         <div id="roadmap"></div>
       </div>
@@ -3964,6 +3964,7 @@
       const catchUpList = document.getElementById("catchUpList");
       const modal = document.getElementById("modal");
       const modalHeader = document.getElementById("modalHeader");
+      const modalHeaderTitle = modalHeader.querySelector("span");
       const slotInfo = document.getElementById("slotInfo");
       const timerDisplay = document.getElementById("timer");
       const timerLabel = document.getElementById("timerLabel");
@@ -4298,7 +4299,9 @@
         const slot = slots[index];
         // Update modal
         modalHeader.className = `modal-header ${slot.type}`;
-        modalHeader.firstChild.textContent = `${slot.type.toUpperCase()} FOCUS`;
+        if (modalHeaderTitle) {
+          modalHeaderTitle.textContent = `${slot.type.toUpperCase()} FOCUS`;
+        }
         slotInfo.innerHTML = `
           <h3 class="card-title">${slot.title}</h3>
           <p class="card-desc">${slot.desc}</p>
@@ -4337,6 +4340,9 @@
         remainingTime = minutes * 60;
         isPaused = false;
         currentMode = mode;
+        if (currentSlot) {
+          inProgressSlot = getSlotKey(currentSlot.dateKey, currentSlot.index);
+        }
         // Update UI
         timerLabel.textContent =
           mode === "study" ? "📚 Study Session" : "☕ Break Time";
@@ -4348,6 +4354,7 @@
           pomodoroCycle = Math.min(pomodoroCycle + 1, totalCycles);
           updateProgressBar();
         }
+        renderGrid();
         updateTimerDisplay();
         timerInterval = setInterval(() => {
           if (isPaused) return;
@@ -4397,6 +4404,7 @@
         stopBtn.disabled = true;
         pauseBtn.textContent = "⏸️ Pause";
         updateProgressBar();
+        renderGrid();
       }
 
       function playAlarm() {
