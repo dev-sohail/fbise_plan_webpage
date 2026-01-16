@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -716,7 +715,11 @@
 
     <div class="modal" id="modal">
       <div class="modal-content">
-        <div class="modal-header" id="modalHeader" style="background-color: #cbd5e0">
+        <div
+          class="modal-header"
+          id="modalHeader"
+          style="background-color: #cbd5e0"
+        >
           <span>Study Session</span>
           <button class="close-btn" id="closeBtn">×</button>
         </div>
@@ -754,11 +757,15 @@
       </div>
     </div>
 
-    <div class="roadmap-btn-container" style="display: none;"><button id="roadmapBtn" class="roadmap-btn">🧭 Show Study Roadmap</button></div>
+    <div class="roadmap-btn-container" style="display: none">
+      <button id="roadmapBtn" class="roadmap-btn">🧭 Show Study Roadmap</button>
+    </div>
 
     <div id="roadmapModal" class="roadmap-modal hidden">
       <div class="roadmap-container">
-        <span id="closeRoadmap" class="roadmap-close-btn" style="color:black;">✖</span>
+        <span id="closeRoadmap" class="roadmap-close-btn" style="color: black"
+          >✖</span
+        >
         <h2>📘 Study Journey Roadmap</h2>
         <div id="roadmap"></div>
       </div>
@@ -770,7 +777,10 @@
     </footer>
 
     <audio id="alarmSound" preload="auto">
-      <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" type="audio/mpeg" />
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3"
+        type="audio/mpeg"
+      />
     </audio>
 
     <script>
@@ -778,3143 +788,1511 @@
       const JSONBIN_BIN_ID = "695e48a6d0ea881f405a9596";
       const JSONBIN_API_KEY =
         "$2a$10$dEHxqxBlSdwt5OnypuafSOvaYjatOBcBHb6dHXRqTOs4t0qnf3AKK";
-      const roadmapData = [{
-          left: "Urdu",
-          date: "Jan 01",
-          right: "Math"
+      // ==================== DATA ====================
+      const schedule = [
+        {
+          date: "2026-01-15",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 1 Functions & Limits (Ex 1.1–1.3)",
+              desc: "HIGH FOCUS • Week 1 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 15 Gravitation (Concepts + Numericals)",
+              desc: "MEDIUM FOCUS • Week 1 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: کمال نفس اور مکارم اخلاق",
+              desc: "LIGHT FOCUS • Week 1 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
         },
         {
-          left: "Pak Studies",
-          date: "Jan 02",
-          right: "Physics"
+          date: "2026-01-16",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 1 (Ex 1.4–1.6 + Review)",
+              desc: "HIGH FOCUS • Week 1 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Computer Science Ch 1 Computer Systems",
+              desc: "MEDIUM FOCUS • Week 1 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: Lingkuan Gorge",
+              desc: "LIGHT FOCUS • Week 1 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
         },
         {
-          left: "CS",
-          date: "Jan 03",
-          right: "English"
+          date: "2026-01-17",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 16 Statistical Mechanics & Thermodynamics",
+              desc: "HIGH FOCUS • Week 1 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 2 Differentiation (Ex 2.1–2.2)",
+              desc: "MEDIUM FOCUS • Week 1 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Pakistan Studies: پاکستان کی نظریاتی اساس",
+              desc: "LIGHT FOCUS • Week 1 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
         },
         {
-          left: "Revision",
-          date: "Jan 04",
-          right: "Mock Test"
+          date: "2026-01-18",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 2 (Ex 2.3–2.5)",
+              desc: "HIGH FOCUS • Week 1 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 17 Simple Harmonic Motion",
+              desc: "MEDIUM FOCUS • Week 1 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-19",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 2 (Ex 2.6–2.8 + Applications)",
+              desc: "HIGH FOCUS • Week 2 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 18 Wave Motion & Diffraction",
+              desc: "MEDIUM FOCUS • Week 2 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: محشر، ماں جی",
+              desc: "LIGHT FOCUS • Week 2 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-20",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 19 Electric Potential & Capacitors",
+              desc: "HIGH FOCUS • Week 2 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 3 Integration (Ex 3.1–3.2)",
+              desc: "MEDIUM FOCUS • Week 2 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: Population Explosion",
+              desc: "LIGHT FOCUS • Week 2 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-21",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "BUFFER / LIGHT REVISION DAY",
+              desc: "HIGH FOCUS • Week 2 - Wed",
+              resources: {
+                link: "",
+                notes: "Quick review Math Ch 1–2 + Physics Ch 15–17",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:30 AM",
+              title: "CS Ch 2 Thinking Logically",
+              desc: "LIGHT FOCUS • Week 2 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-22",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 3 Integration (Ex 3.3–3.5)",
+              desc: "HIGH FOCUS • Week 2 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 20 Alternating Current",
+              desc: "MEDIUM FOCUS • Week 2 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: حمد، نعت",
+              desc: "LIGHT FOCUS • Week 2 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-23",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 21 Quantum Physics",
+              desc: "HIGH FOCUS • Week 2 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 3 (Ex 3.6–3.8 + Review)",
+              desc: "MEDIUM FOCUS • Week 2 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: Income-Tax Man",
+              desc: "LIGHT FOCUS • Week 2 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-24",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 4 Introduction to Analytic Geometry",
+              desc: "HIGH FOCUS • Week 3 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Computer Science Ch 3 Data Types & Operators",
+              desc: "MEDIUM FOCUS • Week 3 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Pakistan Studies: سرزمین پاکستان اور ماحولیاتی خطرہ",
+              desc: "LIGHT FOCUS • Week 3 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-25",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 22 Nuclear Physics",
+              desc: "HIGH FOCUS • Week 3 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 4 (Ex 4.1–4.3)",
+              desc: "MEDIUM FOCUS • Week 3 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-26",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title:
+                "Mathematics Ch 5 Linear Inequalities & Linear Programming",
+              desc: "HIGH FOCUS • Week 3 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 23 Cosmology",
+              desc: "MEDIUM FOCUS • Week 3 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: جگ میں آکر ادھر ادھر دیکھا",
+              desc: "LIGHT FOCUS • Week 3 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-27",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 24 Earth's Climate",
+              desc: "HIGH FOCUS • Week 3 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 5 (Ex 5.1–5.3)",
+              desc: "MEDIUM FOCUS • Week 3 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: The Blanket",
+              desc: "LIGHT FOCUS • Week 3 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-28",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "BUFFER / REVISION DAY - Math Ch 1–3",
+              desc: "HIGH FOCUS • Week 3 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:30 AM",
+              title: "CS Ch 4 Control Structures",
+              desc: "LIGHT FOCUS • Week 3 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-29",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 6 Conic Section",
+              desc: "HIGH FOCUS • Week 4 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 25 Medical Imaging",
+              desc: "MEDIUM FOCUS • Week 4 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: شاخوں پر جلے ہوئے بیرے",
+              desc: "LIGHT FOCUS • Week 4 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-30",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Ch 26 Nature of Science – A Debate",
+              desc: "HIGH FOCUS • Week 4 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Mathematics Ch 6 (Ex 6.1–6.3)",
+              desc: "MEDIUM FOCUS • Week 4 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: Stay Hungry Stay Foolish",
+              desc: "LIGHT FOCUS • Week 4 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-01-31",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 7 Vectors (Ex 7.1–7.3)",
+              desc: "HIGH FOCUS • Week 4 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Computer Science Ch 5 Arrays & Strings",
+              desc: "MEDIUM FOCUS • Week 4 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Pakistan Studies: معدنيات، توانائی کے وسائل",
+              desc: "LIGHT FOCUS • Week 4 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-01",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "MID-TERM REVISION: Mathematics Ch 1–4",
+              desc: "HIGH FOCUS • Week 4 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "MID-TERM REVISION: Physics Ch 15–20",
+              desc: "MEDIUM FOCUS • Week 4 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-02",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 7 Vectors (Ex 7.4–7.6)",
+              desc: "HIGH FOCUS • Week 5 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Numericals Practice Ch 15–18",
+              desc: "MEDIUM FOCUS • Week 5 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: میں روزے سے ہوں",
+              desc: "LIGHT FOCUS • Week 5 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-03",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title:
+                "Mathematics Ch 8 Mathematical Induction & Binomial Theorem",
+              desc: "HIGH FOCUS • Week 5 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "English: Tobacco",
+              desc: "MEDIUM FOCUS • Week 5 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Pakistan Studies: قومی یکجہتی اور سیاسی ہم آہنگی",
+              desc: "LIGHT FOCUS • Week 5 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-04",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Physics Numericals Practice Ch 19–22",
+              desc: "HIGH FOCUS • Week 5 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Computer Science Ch 6 Functions",
+              desc: "MEDIUM FOCUS • Week 5 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu: شروع قصے کا",
+              desc: "LIGHT FOCUS • Week 5 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-05",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 9 Fundamentals of Trigonometry Revision",
+              desc: "HIGH FOCUS • Week 5 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Ch 23–25 Quick Review",
+              desc: "MEDIUM FOCUS • Week 5 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "English: The Sea",
+              desc: "LIGHT FOCUS • Week 5 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-06",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title:
+                "Mathematics Ch 10 Trigonometric Identities (Ex 10.1–10.3)",
+              desc: "HIGH FOCUS • Week 5 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Pakistan Studies: تفریح - سیاحت",
+              desc: "MEDIUM FOCUS • Week 5 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "CS Ch 7 Database Concepts",
+              desc: "LIGHT FOCUS • Week 5 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-07",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FULL REVISION: Mathematics Ch 1–5",
+              desc: "HIGH FOCUS • Week 6 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Past Paper Practice (Ch 15–20)",
+              desc: "MEDIUM FOCUS • Week 6 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu Important Lessons Revision",
+              desc: "LIGHT FOCUS • Week 6 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-08",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Mathematics Ch 10 (Ex 10.4–10.6 + Review)",
+              desc: "HIGH FOCUS • Week 6 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Physics Past Paper Practice (Ch 21–26)",
+              desc: "MEDIUM FOCUS • Week 6 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-09",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "TEST: Mathematics Ch 1–5",
+              desc: "HIGH FOCUS • Week 6 - Mon",
+              resources: {
+                link: "",
+                notes: "Time yourself 3 hours",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:40 AM",
+              title: "Review & Mark Mathematics Test",
+              desc: "LIGHT FOCUS • Week 6 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-10",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "TEST: Physics Ch 15–20",
+              desc: "HIGH FOCUS • Week 6 - Tue",
+              resources: {
+                link: "",
+                notes: "Time yourself 3 hours",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:40 AM",
+              title: "Review & Mark Physics Test",
+              desc: "LIGHT FOCUS • Week 6 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-11",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "TEST: Mathematics Ch 6–10",
+              desc: "HIGH FOCUS • Week 6 - Wed",
+              resources: {
+                link: "",
+                notes: "Time yourself 3 hours",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:40 AM",
+              title: "Review & Mark Mathematics Test",
+              desc: "LIGHT FOCUS • Week 6 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-12",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "TEST: Physics Ch 21–26",
+              desc: "HIGH FOCUS • Week 6 - Thu",
+              resources: {
+                link: "",
+                notes: "Time yourself 3 hours",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:40 AM",
+              title: "Review & Mark Physics Test",
+              desc: "LIGHT FOCUS • Week 6 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-13",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Computer Science Full Chapters Quick Revision",
+              desc: "HIGH FOCUS • Week 6 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "English Important Essays & Stories Revision",
+              desc: "MEDIUM FOCUS • Week 6 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Urdu Important Nazms & Ghazals",
+              desc: "LIGHT FOCUS • Week 6 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-14",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Pakistan Studies Full Book Quick Revision",
+              desc: "HIGH FOCUS • Week 7 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Weak Areas: Mathematics (as per tests)",
+              desc: "MEDIUM FOCUS • Week 7 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "Weak Areas: Physics (as per tests)",
+              desc: "LIGHT FOCUS • Week 7 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-15",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FULL MOCK TEST: Physics Paper",
+              desc: "HIGH FOCUS • Week 7 - Sun",
+              resources: {
+                link: "",
+                notes: "3 hours timed",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-16",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FULL MOCK TEST: Mathematics Paper",
+              desc: "HIGH FOCUS • Week 7 - Mon",
+              resources: {
+                link: "",
+                notes: "3 hours timed",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-17",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Review & Analysis of Physics & Math Mocks",
+              desc: "HIGH FOCUS • Week 7 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Computer Science Past Paper Practice",
+              desc: "MEDIUM FOCUS • Week 7 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-18",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FINAL REVISION: Mathematics Key Chapters",
+              desc: "HIGH FOCUS • Week 7 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "FINAL REVISION: Physics Key Chapters",
+              desc: "MEDIUM FOCUS • Week 7 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-19",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FINAL REVISION: English Important Questions",
+              desc: "HIGH FOCUS • Week 7 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "FINAL REVISION: Urdu Important Portions",
+              desc: "MEDIUM FOCUS • Week 7 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "light",
+              time: "01:20 AM - 02:20 AM",
+              title: "FINAL REVISION: Pakistan Studies Key Topics",
+              desc: "LIGHT FOCUS • Week 7 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-20",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "Computer Science Complete Revision + MCQs",
+              desc: "HIGH FOCUS • Week 7 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+            {
+              type: "medium",
+              time: "11:20 PM - 01:00 AM",
+              title: "Formula & Important Points Revision (All Subjects)",
+              desc: "MEDIUM FOCUS • Week 7 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-21",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "LIGHT REVISION + CONFIDENCE BUILDING",
+              desc: "HIGH FOCUS • Week 8 - Sat",
+              resources: {
+                link: "",
+                notes: "Only key formulas, concepts, MCQs",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-22",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "FINAL LIGHT REVISION + Mental Preparation",
+              desc: "HIGH FOCUS • Week 8 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-23",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "LAST MOMENT REVISION: Mathematics & Physics",
+              desc: "HIGH FOCUS • Week 8 - Mon",
+              resources: {
+                link: "",
+                notes: "Only strong & weak spots",
+              },
+            },
+            {
+              type: "light",
+              time: "11:20 PM - 12:30 AM",
+              title: "Relax + Confidence Building",
+              desc: "LIGHT FOCUS • Week 8 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-24",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 11:00 PM",
+              title: "VERY LIGHT REVISION + Rest",
+              desc: "HIGH FOCUS • Week 8 - Tue",
+              resources: {
+                link: "",
+                notes: "Just glance through formulas & key points",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-25",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:30 PM",
+              title: "LAST GLANCE + Mental Preparation",
+              desc: "HIGH FOCUS • Week 8 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-26",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:30 PM",
+              title: "REST & LIGHT REVISION (only if needed)",
+              desc: "HIGH FOCUS • Week 8 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-27",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:30 PM",
+              title: "REST DAY – Stay Calm",
+              desc: "HIGH FOCUS • Week 8 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-02-28",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "VERY LIGHT GLANCE – All the Best!",
+              desc: "HIGH FOCUS • Week 8 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-01",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "REST & POSITIVE VISUALIZATION",
+              desc: "HIGH FOCUS • Week 8 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-02",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "FINAL PREPARATION DAY",
+              desc: "HIGH FOCUS • Week 8 - Mon",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-03",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "REST & CONFIDENCE",
+              desc: "HIGH FOCUS • Week 8 - Tue",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-04",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM READY – Sleep Well",
+              desc: "HIGH FOCUS • Week 8 - Wed",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-05",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM READY – Stay Positive",
+              desc: "HIGH FOCUS • Week 8 - Thu",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-06",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM READY – All the Best!",
+              desc: "HIGH FOCUS • Week 8 - Fri",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-07",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM READY – You can do it!",
+              desc: "HIGH FOCUS • Week 8 - Sat",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-08",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "FINAL DAY BEFORE EXAMS – REST & CONFIDENCE",
+              desc: "HIGH FOCUS • Week 8 - Sun",
+              resources: {
+                link: "",
+                notes: "",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-09",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM DAY – Good Luck!",
+              desc: "HIGH FOCUS • Week 9 - Mon",
+              resources: {
+                link: "",
+                notes: "Final preparation and rest",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-10",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM DAY – Stay Focused!",
+              desc: "HIGH FOCUS • Week 9 - Tue",
+              resources: {
+                link: "",
+                notes: "Review key concepts lightly",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-11",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM DAY – You've Got This!",
+              desc: "HIGH FOCUS • Week 9 - Wed",
+              resources: {
+                link: "",
+                notes: "Final confidence building",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-12",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM DAY – Almost There!",
+              desc: "HIGH FOCUS • Week 9 - Thu",
+              resources: {
+                link: "",
+                notes: "Last minute revision",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-13",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM DAY – Final Push!",
+              desc: "HIGH FOCUS • Week 9 - Fri",
+              resources: {
+                link: "",
+                notes: "Stay calm and focused",
+              },
+            },
+          ],
+        },
+        {
+          date: "2026-03-14",
+          slots: [
+            {
+              type: "high",
+              time: "09:00 PM - 10:00 PM",
+              title: "EXAM COMPLETION – Well Done!",
+              desc: "HIGH FOCUS • Week 9 - Sat",
+              resources: {
+                link: "",
+                notes: "Congratulations on completing your preparation!",
+              },
+            },
+          ],
         },
       ];
-      // ==================== DATA ====================
-      const schedule2 = [{
-          "date": "2026-01-01",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Integration - Concepts & Basic Formulas",
-              "desc": "HIGH • Week 1 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 3 - Focus on standard integrals, basic rules, properties."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Electrostatics - Coulomb's Law & Electric Field",
-              "desc": "MEDIUM • Week 1 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 11 - Solve numericals on force between point charges."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Prose - Comprehension & Vocabulary",
-              "desc": "LIGHT • Week 1 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Unit from textbook. Read one lesson, note difficult words."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-02",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Data Basics - Files & File Types",
-              "desc": "HIGH • Week 1 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 1 - Sequential vs random access, binary vs text files."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Integration - Methods of Substitution",
-              "desc": "MEDIUM • Week 1 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Practice substitution method with algebraic and trigonometric functions."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Nazam - Ashaar Ki Tashreeh",
-              "desc": "LIGHT • Week 1 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "First prescribed Nazam. Understand theme, poet's message, figures of speech."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-03",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Electrostatics - Electric Flux & Gauss's Law",
-              "desc": "HIGH • Week 1 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 11 - Derive and apply formula, solve problems for symmetric charge distributions."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Data Basics - File Processing Operations",
-              "desc": "MEDIUM • Week 1 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Study open, close, read, write, update operations in pseudocode/flowcharts."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Early Problems of Pakistan",
-              "desc": "LIGHT • Week 1 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Chapter 1 - Focus on administrative, constitutional, refugee problems."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-04",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Integration - By Parts & Partial Fractions",
-              "desc": "HIGH • Week 1 - Day 4",
-              "desc": "HIGH • Week 1 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Practice ILATE rule for by-parts. Resolve proper/improper rational functions."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Current Electricity - Ohm's Law, Resistivity",
-              "desc": "MEDIUM • Week 1 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 12 - Solve series/parallel combination problems, temperature dependence."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Grammar - Tenses & Sentence Correction",
-              "desc": "LIGHT • Week 1 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Practice present perfect, past perfect, future perfect tenses with exercises."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-05",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Data Integrity & Validation",
-              "desc": "HIGH • Week 1 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 2 - Types of validation (range, length, type, presence). Verification methods."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Definite Integrals & Area Under Curve",
-              "desc": "MEDIUM • Week 1 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Properties of definite integrals. Calculate area between curve and x-axis."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Ghazal - Radeef, Qafia, Khayaal",
-              "desc": "LIGHT • Week 1 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "First prescribed Ghazal. Identify radif, qafia, central theme of each couplet."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-06",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Current Electricity - Kirchhoff's Laws",
-              "desc": "HIGH • Week 1 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Apply Kirchhoff's junction & loop rules to solve complex DC circuit problems."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Weekly Review & Buffer Session",
-              "desc": "MEDIUM • Week 1 - Review",
-              "resources": {
-                "link": "",
-                "notes": "Revise key formulas from Math (Integration), Physics (Electrostatics), CS (Files)."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Foreign Policy & Relations (1947-1999)",
-              "desc": "LIGHT • Week 1 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Chapter 2 - Focus on relations with India, USA, China, Afghanistan."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-07",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Application of Integration - Volumes",
-              "desc": "HIGH • Week 2 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Calculate volume of solid of revolution using disk/washer methods."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Data Protection & Security",
-              "desc": "MEDIUM • Week 2 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 2 - Threats (viruses, hackers). Protection methods (encryption, backup, access controls)."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Letter Writing - Formal & Informal",
-              "desc": "LIGHT • Week 2 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Practice format, salutations, closing phrases for complaint letter and letter to friend."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-08",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Magnetism & EM - Magnetic Force on Moving Charge",
-              "desc": "HIGH • Week 2 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 13 - Use F = q(v x B), right-hand rule, solve for charge in magnetic fields."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Differential Equations - Basic Concepts & Formation",
-              "desc": "MEDIUM • Week 2 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Order, degree, general & particular solutions. Form DEs from given families of curves."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Prose - Summary & Idioms",
-              "desc": "LIGHT • Week 2 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "First prescribed prose lesson. Write summary and note idioms used."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-09",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Arrays - 1D & 2D Operations",
-              "desc": "HIGH • Week 2 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 3 - Traversal, insertion, deletion, searching (linear, binary) in arrays."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Magnetism & EM - Force on Current-Carrying Conductor",
-              "desc": "MEDIUM • Week 2 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Use F = I(L x B). Solve problems for forces and torques on current loops."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Economic & Social Development",
-              "desc": "LIGHT • Week 2 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Chapter 3 - Agriculture, industry, education, health developments post-1947."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-10",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Differential Equations - Variable Separable Method",
-              "desc": "HIGH • Week 2 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Solve first order DEs using separation of variables. Initial value problems."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Arrays - Sorting Algorithms",
-              "desc": "MEDIUM • Week 2 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Study bubble sort, insertion sort algorithms with pseudocode/flowcharts. Complexity basics."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Prose - Character Analysis & Themes",
-              "desc": "LIGHT • Week 2 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Analyze characters, plot, and moral lessons from second prescribed prose lesson."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-11",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Electromagnetic Induction - Faraday's & Lenz's Law",
-              "desc": "HIGH • Week 2 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 14 - Induced EMF, magnetic flux change, direction of induced current."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Differential Equations - Homogeneous & Exact Equations",
-              "desc": "MEDIUM • Week 2 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Solve homogeneous DEs using substitution y=vx. Identify and solve exact DEs."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Grammar - Ism, Fail, Harf",
-              "desc": "LIGHT • Week 2 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Parts of speech identification and usage in sentences from textbook."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-12",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Linked Lists - Concepts & Operations",
-              "desc": "HIGH • Week 2 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 4 - Singly linked list structure, traversal, node insertion/deletion."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Weekly Review & Weak Concepts Revision",
-              "desc": "MEDIUM • Week 2 - Review",
-              "resources": {
-                "link": "",
-                "notes": "Revisit difficult topics from Week 1 & 2. Solve 2-3 tough problems from each major topic."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: National Culture & Languages",
-              "desc": "LIGHT • Week 2 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Chapter 4 - Pakistani culture, regional languages, role of Urdu."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-13",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Vectors - Introduction & Algebra of Vectors",
-              "desc": "HIGH • Week 3 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 4 - Vector representation, magnitude, direction, addition, subtraction, scalar multiplication."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Electromagnetic Induction - Self & Mutual Inductance",
-              "desc": "MEDIUM • Week 3 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Define inductance, study factors affecting it. Solve EMF problems for inductors."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Precis & Comprehension Practice",
-              "desc": "LIGHT • Week 3 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Practice shortening a paragraph to 1/3rd length while keeping main ideas."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-14",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Stacks & Queues - Concepts & Applications",
-              "desc": "HIGH • Week 3 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 5 - LIFO/FIFO, push/pop, enqueue/dequeue operations. Infix to postfix conversion."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Vectors - Scalar & Vector Products",
-              "desc": "MEDIUM • Week 3 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Dot product (geometric & algebraic), cross product (magnitude & direction). Applications."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Essay Writing - Outline & Drafting",
-              "desc": "LIGHT • Week 3 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Practice structuring an essay (intro, body, conclusion) on a general topic."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-15",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Alternating Current - Peak, RMS, Phase",
-              "desc": "HIGH • Week 3 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 15 - AC generator, sinusoidal functions, V_rms = V_peak/√2, phase difference."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Recursion - Concepts & Simple Programs",
-              "desc": "MEDIUM • Week 3 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 6 - Base case, recursive case. Write recursive functions for factorial, Fibonacci."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Chapter 1 & 2 Revision (MCQs)",
-              "desc": "LIGHT • Week 3 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Solve past paper MCQs on early problems and foreign policy."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-16",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Vector Geometry - Lines in Space",
-              "desc": "HIGH • Week 3 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Vector equation of a line, parametric & symmetric forms. Find line through two points."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Alternating Current - AC Circuits (R, L, C)",
-              "desc": "MEDIUM • Week 3 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Study resistive, inductive, capacitive reactance. Impedance in series RL, RC, RLC circuits."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Essay Writing - Argumentative Essay Structure",
-              "desc": "LIGHT • Week 3 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Learn structure: thesis statement, supporting arguments, counterarguments, conclusion."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-17",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Recursion - Advanced Problems & Tracing",
-              "desc": "HIGH • Week 3 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Trace recursive calls for complex functions. Solve problems like tower of Hanoi."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Vector Geometry - Planes in Space",
-              "desc": "MEDIUM • Week 3 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Equation of a plane (point-normal form, general form). Find plane through three points."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Past Paper - Short Questions Practice",
-              "desc": "LIGHT • Week 3 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Solve short questions from past papers on grammar, poetry, and prose."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-18",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Electronics - Semiconductor Diodes & Rectification",
-              "desc": "HIGH • Week 3 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 16 - p-n junction, forward/reverse bias, half/full wave rectification."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "MID-TERM FOCUSED REVISION",
-              "desc": "MEDIUM • Week 3 - Review",
-              "resources": {
-                "link": "",
-                "notes": "Comprehensive revision of Math (Integration, DEs start), Physics (Electrostatics, Current Electricity)."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Chapter 3 & 4 Revision (Short Qs)",
-              "desc": "LIGHT • Week 3 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Write answers to short questions from past papers on economy and culture."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-19",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "MID-TERM TEST - Math (Integration & Vectors)",
-              "desc": "HIGH • Week 4 - Test",
-              "resources": {
-                "link": "",
-                "notes": "Solve past paper section B questions (5-6) on integration techniques and vector algebra/geometry. Timed practice."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "MID-TERM TEST - Physics (Electrostatics & Current Electricity)",
-              "desc": "MEDIUM • Week 4 - Test",
-              "resources": {
-                "link": "",
-                "notes": "Solve past paper section B numerical problems from Units 11 & 12. Check answers thoroughly."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Review Test Mistakes & Plan Corrections",
-              "desc": "LIGHT • Week 4 - Test Review",
-              "resources": {
-                "link": "",
-                "notes": "Analyze errors from today's tests. Note down weak areas for future revision."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-20",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Graphs - Terminology & Representations",
-              "desc": "HIGH • Week 4 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 7 - Vertices, edges, directed/undirected, weighted/unweighted. Adjacency matrix/list."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Electronics - Transistors (BJT)",
-              "desc": "MEDIUM • Week 4 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Transistor structure (NPN/PNP), biasing, working as amplifier and switch."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Past Paper - Comprehension Passage",
-              "desc": "LIGHT • Week 4 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Solve one full comprehension passage from past paper, answer all questions."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-21",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Linear Programming - Graphing Inequalities",
-              "desc": "HIGH • Week 4 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 5 - Graph linear inequalities, find feasible region for a system of inequalities."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Graphs - Traversal Algorithms",
-              "desc": "MEDIUM • Week 4 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Depth First Search (DFS) and Breadth First Search (BFS) algorithms with examples."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Past Paper - Essay Writing Practice",
-              "desc": "LIGHT • Week 4 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Write an essay outline on a past paper topic within time limit."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-22",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Dawn of Modern Physics - Blackbody Radiation, Photons",
-              "desc": "HIGH • Week 4 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 17 - Quantum theory, Planck's hypothesis, photoelectric effect basics."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Linear Programming - Objective Function & Optimization",
-              "desc": "MEDIUM • Week 4 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Formulate LP problems, find optimal solution (max/min) by evaluating objective function at corner points."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Past Paper - Long Question Practice",
-              "desc": "LIGHT • Week 4 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Attempt one 8-mark long question from a past paper under exam conditions."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-23",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Introduction to SQL - DDL & Basic Queries",
-              "desc": "HIGH • Week 4 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 8 - CREATE, DROP, ALTER TABLE. Simple SELECT queries with WHERE clause."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Atomic Spectra & Bohr's Model",
-              "desc": "MEDIUM • Week 4 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Spectral series (Balmer, Lyman), Bohr's postulates, energy levels, hydrogen spectrum."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Past Paper - Grammar & Correction",
-              "desc": "LIGHT • Week 4 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Solve grammar correction and sentence completion exercises from past papers."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-24",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Probability - Basic Concepts, Sample Space, Events",
-              "desc": "HIGH • Week 4 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 6 - Experiment, outcome, sample space, types of events (mutually exclusive, independent)."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: SQL - Advanced Queries (JOIN, GROUP BY)",
-              "desc": "MEDIUM • Week 4 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "INNER JOIN, use of aggregate functions (COUNT, SUM, AVG) with GROUP BY and HAVING."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Past Paper - Ghazal & Nazam Questions",
-              "desc": "LIGHT • Week 4 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Solve past paper questions on explanation of verses (Tashreeh)."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-25",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Nuclear Physics - Radioactivity & Decay Laws",
-              "desc": "HIGH • Week 4 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 18 - Alpha, beta, gamma decay. Decay constant, half-life, mean life calculations."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Weekly Buffer & Revision",
-              "desc": "MEDIUM • Week 4 - Review",
-              "resources": {
-                "link": "",
-                "notes": "Catch up on any missed topics. Revise CS Graphs & SQL, Physics Modern Physics intro."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Full Book MCQs Revision",
-              "desc": "LIGHT • Week 4 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Solve a mixed set of 20 MCQs from all four chapters."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-26",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Probability - Laws, Conditional Probability",
-              "desc": "HIGH • Week 5 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Addition law, multiplication law for independent/dependent events. Conditional probability P(A|B)."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Object-Oriented Programming (OOP) Concepts",
-              "desc": "MEDIUM • Week 5 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 9 - Classes, objects, encapsulation, inheritance, polymorphism, abstraction."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Past Paper - Essay Outline Practice",
-              "desc": "LIGHT • Week 5 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Create detailed outlines for two different essay prompts from past papers."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-27",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Nuclear Physics - Mass Defect & Binding Energy",
-              "desc": "HIGH • Week 5 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Calculate mass defect, binding energy, and binding energy per nucleon. Stability curve."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Random Variables & Expectation - Discrete Case",
-              "desc": "MEDIUM • Week 5 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Define random variable, probability distribution, mean (expected value), variance, standard deviation."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Past Paper - Translation & Idioms",
-              "desc": "LIGHT • Week 5 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Practice translating sentences (Eng to Urdu, Urdu to Eng) and using idioms correctly."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-28",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: OOP - Implementing Classes & Objects (Theory)",
-              "desc": "HIGH • Week 5 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Study syntax for defining classes, attributes, methods, constructors in pseudocode/Java-like syntax."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Revision of All Physics Numerical Formulas",
-              "desc": "MEDIUM • Week 5 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Create a formula sheet for all units: Electrostatics to Nuclear Physics. Derive units."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Past Paper - Short Questions (All Chapters)",
-              "desc": "LIGHT • Week 5 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Solve short questions from a complete past paper."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-29",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Binomial & Normal Distributions - Introduction",
-              "desc": "HIGH • Week 5 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Binomial: n, p, q, formula P(X=r). Normal: properties of bell curve, mean, standard deviation."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Web Development Basics - HTML & CSS",
-              "desc": "MEDIUM • Week 5 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "FBISE Unit 10 - Basic HTML tags (html, head, body, h1, p, a, img). Inline CSS for styling."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Full Past Paper - Section A Attempt",
-              "desc": "LIGHT • Week 5 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Attempt comprehension, grammar, and short answer questions from one full past paper."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-30",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FULL MOCK TEST - Computer Science (Paper I)",
-              "desc": "HIGH • Week 5 - Mock",
-              "resources": {
-                "link": "",
-                "notes": "Attempt a full past paper of CS Paper I (Theoretical) within 2 hours. No cheating."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Review CS Mock Test & Analyze Performance",
-              "desc": "MEDIUM • Week 5 - Mock Review",
-              "resources": {
-                "link": "",
-                "notes": "Check answers, identify knowledge gaps in Units 1-10. Plan targeted revision."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Light Urdu Revision - Important Idioms & Proverbs",
-              "desc": "LIGHT • Week 5 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Memorize 10 common idioms and 5 proverbs with their meanings and usage."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-31",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FULL MOCK TEST - Math (Complete Paper)",
-              "desc": "HIGH • Week 5 - Mock",
-              "resources": {
-                "link": "",
-                "notes": "Attempt a full past paper of Mathematics within 3 hours under strict timing."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Review Math Mock Test & Error Analysis",
-              "desc": "MEDIUM • Week 5 - Mock Review",
-              "resources": {
-                "link": "",
-                "notes": "Grade your paper. List recurring mistakes (conceptual, calculation, time management)."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Important Dates & Events Revision",
-              "desc": "LIGHT • Week 5 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Revise chronology of major events from 1947 onwards."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-01",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FULL MOCK TEST - Physics (Complete Paper)",
-              "desc": "HIGH • Week 6 - Mock",
-              "resources": {
-                "link": "",
-                "notes": "Attempt a full past paper of Physics within 3 hours. Focus on numerical solving speed."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Review Physics Mock Test & Formula Weaknesses",
-              "desc": "MEDIUM • Week 6 - Mock Review",
-              "resources": {
-                "link": "",
-                "notes": "Check solutions. Note which formulas were forgotten or misapplied."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Past Paper - Letter & Application Writing",
-              "desc": "LIGHT • Week 6 - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Write one formal letter and one job application based on past paper prompts."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-02",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Computer Science: Past Paper Revision - Tough Questions",
-              "desc": "HIGH • Week 6 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Re-solve only the difficult questions (from mocks/past papers) on arrays, linked lists, SQL, OOP."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Math: Past Paper Revision - Tough Questions",
-              "desc": "MEDIUM • Week 6 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Re-solve complex problems on integration, differential equations, vectors, probability."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Urdu: Complete Revision - One Ghazal & One Nazam",
-              "desc": "LIGHT • Week 6 - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Thoroughly revise one ghazal and one nazam, including poet, theme, and verse explanations."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-03",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Physics: Past Paper Revision - Tough Numericals",
-              "desc": "HIGH • Week 6 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Re-solve challenging numericals from electrostatics, current electricity, magnetism, AC, modern physics."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Computer Science: Quick Revision - Definitions & Short Points",
-              "desc": "MEDIUM • Week 6 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Go through all important definitions, algorithm steps, and SQL commands from all units."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Pak Studies: Complete Revision - Chapter 1",
-              "desc": "LIGHT • Week 6 - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Read chapter 1 thoroughly, make bullet points for potential long questions."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-04",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "Math: Quick Revision - All Important Formulas & Theorems",
-              "desc": "HIGH • Week 6 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Create final formula sheet. Revise key theorems (e.g., fundamental theorem of calculus)."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Physics: Quick Revision - Conceptual Short Questions",
-              "desc": "MEDIUM • Week 6 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Go through conceptual short questions from all units. Understand definitions and principles."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "English: Quick Revision - Essay Templates & Vocabulary",
-              "desc": "LIGHT • Week 6 - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Review essay structures and a list of 20 advanced vocabulary words for writing."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-05",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FINAL INTEGRATED REVISION - Math & Physics Mix",
-              "desc": "HIGH • Week 6 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Solve mixed practice questions covering multiple chapters from both subjects in one session."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "FINAL INTEGRATED REVISION - Computer Science & English Mix",
-              "desc": "MEDIUM • Week 6 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Alternate between CS short questions and English comprehension/grammar practice."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "FINAL INTEGRATED REVISION - Urdu & Pak Studies Mix",
-              "desc": "LIGHT • Week 6 - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Alternate between Urdu short answers and Pak Studies MCQs/short answers."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-06",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FINAL BUFFER & WEAKEST TOPIC REVISION",
-              "desc": "HIGH • Week 6 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Spend full session on your single weakest topic across all subjects (based on mock tests)."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "Exam Strategy & Time Management Planning",
-              "desc": "MEDIUM • Week 6 - Planning",
-              "resources": {
-                "link": "",
-                "notes": "Plan time allocation per section for each paper. Review instructions for MCQs, short/long Qs."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Mental Preparation & Relaxation Techniques",
-              "desc": "LIGHT • Week 6 - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Review tips for managing exam stress, maintaining focus during long papers."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-07",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FINAL REVISION - Physics Full Book Important Points",
-              "desc": "HIGH • Final Week - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Skim through all physics chapters, focusing only on highlighted points, definitions, and key formulas."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "FINAL REVISION - Computer Science Full Book Important Points",
-              "desc": "MEDIUM • Final Week - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Skim through all CS units, focusing on definitions, algorithm steps, and SQL syntax."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "FINAL REVISION - English Formats & Rules",
-              "desc": "LIGHT • Final Week - Day 1",
-              "resources": {
-                "link": "",
-                "notes": "Revise letter/application format, essay structure, and common grammar rules."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-08",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FINAL REVISION - Math Full Book Important Points",
-              "desc": "HIGH • Final Week - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Skim through all math chapters, focusing on key formulas, derivative/integral rules, vector properties."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "FINAL REVISION - Urdu Important Ghazal/Nazam Points",
-              "desc": "MEDIUM • Final Week - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Revise central themes, poets' names, and explanations of important verses from all poems."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "FINAL REVISION - Pak Studies Important Dates & Events",
-              "desc": "LIGHT • Final Week - Day 2",
-              "resources": {
-                "link": "",
-                "notes": "Go through the list of important dates, personalities, and events from all chapters."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-09",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "FINAL FORMULA RECAP - Math & Physics",
-              "desc": "HIGH • Final Week - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Go through your final formula sheets for both subjects. Write down the most tricky ones from memory."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "FINAL CONCEPT RECAP - Computer Science & Pak Studies",
-              "desc": "MEDIUM • Final Week - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Verbally explain key concepts from CS (e.g., OOP, SQL) and Pak Studies (e.g., foreign policy) to yourself."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "FINAL RECAP - English & Urdu Writing Tips",
-              "desc": "LIGHT • Final Week - Day 3",
-              "resources": {
-                "link": "",
-                "notes": "Review formats for letter, application, essay, and Urdu essay. Checklists for each."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-10",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "PAST PAPER MCQs - Math, Physics, CS Mix",
-              "desc": "HIGH • Final Week - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Solve 50 mixed MCQs from recent past papers of the three core subjects. Timed drill."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "PAST PAPER MCQs - English, Urdu, Pak Studies Mix",
-              "desc": "MEDIUM • Final Week - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Solve 50 mixed MCQs from recent past papers of the three non-core subjects. Timed drill."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "Review MCQ Performance & Last-Minute Clarifications",
-              "desc": "LIGHT • Final Week - Day 4",
-              "resources": {
-                "link": "",
-                "notes": "Check answers. If any concept is still unclear, look it up quickly but DO NOT learn new topics."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-11",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "SUBJECT-WISE CONFIDENCE CHECK & MIND MAPPING",
-              "desc": "HIGH • Final Week - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "For each subject, quickly list the 5 strongest and 3 weakest areas. Create a mental map of the syllabus."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "STATIONERY, ADMIT CARD & EXAM DAY PREPARATION",
-              "desc": "MEDIUM • Final Week - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Prepare all required items (pens, calculator, admit card, etc.). Plan exam day routine and travel."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "LIGHT REVISION - Favorite & Easiest Topics",
-              "desc": "LIGHT • Final Week - Day 5",
-              "resources": {
-                "link": "",
-                "notes": "Go through topics you enjoy and are confident in, to boost morale and maintain fluency."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-12",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "COMPLETE REST & MENTAL REHEARSAL",
-              "desc": "HIGH • Final Week - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "NO ACTIVE STUDY. Mentally visualize the exam hall, paper receiving, and calmly solving questions."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "RELAXATION & POSITIVE AFFIRMATIONS",
-              "desc": "MEDIUM • Final Week - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Listen to calming music, meditate, or engage in light reading (non-academic). Affirm your preparation."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "EARLY SLEEP PREPARATION",
-              "desc": "LIGHT • Final Week - Day 6",
-              "resources": {
-                "link": "",
-                "notes": "Prepare for a full night's sleep. Set multiple alarms for the exam day. No screens."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-13",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "EXAM DAY - REST & RECUPERATION",
-              "desc": "HIGH • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "Assuming an exam was held during the day. Rest, do not discuss the paper excessively. Hydrate and eat well."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "LIGHT PREVIEW FOR NEXT PAPER (if any)",
-              "desc": "MEDIUM • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "If another paper is scheduled soon, do a very light, non-stressful review of only key formulas/points for that subject."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "PLAN FOR NEXT DAY",
-              "desc": "LIGHT • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "Prepare stationery and clothes for the next exam day. Plan a calm morning."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-14",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "ADJUSTABLE REVISION SLOT - Based on Exam Schedule",
-              "desc": "HIGH • Flexible",
-              "resources": {
-                "link": "",
-                "notes": "Use this slot for final light revision of the subject whose exam is next. Focus on summaries only."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "ADJUSTABLE REVISION SLOT - Based on Exam Schedule",
-              "desc": "MEDIUM • Flexible",
-              "resources": {
-                "link": "",
-                "notes": "Use this slot for final light revision of another subject or for complete rest if no exam next."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "REST & CONFIDENCE BOOSTING",
-              "desc": "LIGHT • Flexible",
-              "resources": {
-                "link": "",
-                "notes": "Remind yourself of your hard work and preparation. Trust your ability."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-15",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM REVIEW & FUTURE PLANNING (Optional)",
-              "desc": "HIGH • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "After exams are over, optional session to reflect on performance and plan next steps (university applications, etc.)."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "LEISURE & HOBBY TIME",
-              "desc": "MEDIUM • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "Engage in a hobby, read a book, or watch something enjoyable. Celebrate the end of exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "SLEEP SCHEDULE NORMALIZATION",
-              "desc": "LIGHT • Post-Exam",
-              "resources": {
-                "link": "",
-                "notes": "Begin adjusting your sleep schedule back to a conventional routine if desired."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-16",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "END OF PLANNED STUDY SCHEDULE",
-              "desc": "HIGH • End",
-              "resources": {
-                "link": "",
-                "notes": "Formal study schedule concludes. Use time for personal development, relaxation, or exploring interests."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "END OF PLANNED STUDY SCHEDULE",
-              "desc": "MEDIUM • End",
-              "resources": {
-                "link": "",
-                "notes": "Formal study schedule concludes."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "END OF PLANNED STUDY SCHEDULE",
-              "desc": "LIGHT • End",
-              "resources": {
-                "link": "",
-                "notes": "Formal study schedule concludes."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-17",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-18",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-19",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-20",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-21",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Well-deserved break after completion of FBISE exams."
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-22",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM – 11:00 PM",
-              "title": "POST-EXAM BREAK - Final Day of Schedule",
-              "desc": "HIGH • Break",
-              "resources": {
-                "link": "",
-                "notes": "Conclusion of the planned study and exam period. Await results with confidence."
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM – 01:00 AM",
-              "title": "POST-EXAM BREAK - Final Day of Schedule",
-              "desc": "MEDIUM • Break",
-              "resources": {
-                "link": "",
-                "notes": "Conclusion of the planned study and exam period. Await results with confidence."
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM – 02:20 AM",
-              "title": "POST-EXAM BREAK - Final Day of Schedule",
-              "desc": "LIGHT • Break",
-              "resources": {
-                "link": "",
-                "notes": "Conclusion of the planned study and exam period. Await results with confidence."
-              }
-            }
-          ]
-        }
-      ]
 
-      const schedule = [{
-          "date": "2026-01-01",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 1 Functions & Limits (Ex 1.1–1.3)",
-              "desc": "HIGH FOCUS • Week 1 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 15 Gravitation (Concepts + Numericals)",
-              "desc": "MEDIUM FOCUS • Week 1 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: کمال نفس اور مکارم اخلاق",
-              "desc": "LIGHT FOCUS • Week 1 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-02",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 1 (Ex 1.4–1.6 + Review)",
-              "desc": "HIGH FOCUS • Week 1 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Computer Science Ch 1 Computer Systems",
-              "desc": "MEDIUM FOCUS • Week 1 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: Lingkuan Gorge",
-              "desc": "LIGHT FOCUS • Week 1 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-03",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 16 Statistical Mechanics & Thermodynamics",
-              "desc": "HIGH FOCUS • Week 1 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 2 Differentiation (Ex 2.1–2.2)",
-              "desc": "MEDIUM FOCUS • Week 1 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Pakistan Studies: پاکستان کی نظریاتی اساس",
-              "desc": "LIGHT FOCUS • Week 1 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-04",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 2 (Ex 2.3–2.5)",
-              "desc": "HIGH FOCUS • Week 1 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 17 Simple Harmonic Motion",
-              "desc": "MEDIUM FOCUS • Week 1 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-05",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 2 (Ex 2.6–2.8 + Applications)",
-              "desc": "HIGH FOCUS • Week 2 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 18 Wave Motion & Diffraction",
-              "desc": "MEDIUM FOCUS • Week 2 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: محشر، ماں جی",
-              "desc": "LIGHT FOCUS • Week 2 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-06",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 19 Electric Potential & Capacitors",
-              "desc": "HIGH FOCUS • Week 2 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 3 Integration (Ex 3.1–3.2)",
-              "desc": "MEDIUM FOCUS • Week 2 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: Population Explosion",
-              "desc": "LIGHT FOCUS • Week 2 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-07",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "BUFFER / LIGHT REVISION DAY",
-              "desc": "HIGH FOCUS • Week 2 - Wed",
-              "resources": {
-                "link": "",
-                "notes": "Quick review Math Ch 1–2 + Physics Ch 15–17"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:30 AM",
-              "title": "CS Ch 2 Thinking Logically",
-              "desc": "LIGHT FOCUS • Week 2 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-08",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 3 Integration (Ex 3.3–3.5)",
-              "desc": "HIGH FOCUS • Week 2 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 20 Alternating Current",
-              "desc": "MEDIUM FOCUS • Week 2 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: حمد، نعت",
-              "desc": "LIGHT FOCUS • Week 2 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-09",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 21 Quantum Physics",
-              "desc": "HIGH FOCUS • Week 2 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 3 (Ex 3.6–3.8 + Review)",
-              "desc": "MEDIUM FOCUS • Week 2 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: Income-Tax Man",
-              "desc": "LIGHT FOCUS • Week 2 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-10",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 4 Introduction to Analytic Geometry",
-              "desc": "HIGH FOCUS • Week 3 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Computer Science Ch 3 Data Types & Operators",
-              "desc": "MEDIUM FOCUS • Week 3 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Pakistan Studies: سرزمین پاکستان اور ماحولیاتی خطرہ",
-              "desc": "LIGHT FOCUS • Week 3 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-11",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 22 Nuclear Physics",
-              "desc": "HIGH FOCUS • Week 3 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 4 (Ex 4.1–4.3)",
-              "desc": "MEDIUM FOCUS • Week 3 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-12",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 5 Linear Inequalities & Linear Programming",
-              "desc": "HIGH FOCUS • Week 3 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 23 Cosmology",
-              "desc": "MEDIUM FOCUS • Week 3 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: جگ میں آکر ادھر ادھر دیکھا",
-              "desc": "LIGHT FOCUS • Week 3 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-13",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 24 Earth's Climate",
-              "desc": "HIGH FOCUS • Week 3 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 5 (Ex 5.1–5.3)",
-              "desc": "MEDIUM FOCUS • Week 3 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: The Blanket",
-              "desc": "LIGHT FOCUS • Week 3 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-14",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "BUFFER / REVISION DAY - Math Ch 1–3",
-              "desc": "HIGH FOCUS • Week 3 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:30 AM",
-              "title": "CS Ch 4 Control Structures",
-              "desc": "LIGHT FOCUS • Week 3 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-15",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 6 Conic Section",
-              "desc": "HIGH FOCUS • Week 4 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 25 Medical Imaging",
-              "desc": "MEDIUM FOCUS • Week 4 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: شاخوں پر جلے ہوئے بیرے",
-              "desc": "LIGHT FOCUS • Week 4 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-16",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Ch 26 Nature of Science – A Debate",
-              "desc": "HIGH FOCUS • Week 4 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Mathematics Ch 6 (Ex 6.1–6.3)",
-              "desc": "MEDIUM FOCUS • Week 4 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: Stay Hungry Stay Foolish",
-              "desc": "LIGHT FOCUS • Week 4 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-17",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 7 Vectors (Ex 7.1–7.3)",
-              "desc": "HIGH FOCUS • Week 4 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Computer Science Ch 5 Arrays & Strings",
-              "desc": "MEDIUM FOCUS • Week 4 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Pakistan Studies: معدنيات، توانائی کے وسائل",
-              "desc": "LIGHT FOCUS • Week 4 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-18",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "MID-TERM REVISION: Mathematics Ch 1–4",
-              "desc": "HIGH FOCUS • Week 4 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "MID-TERM REVISION: Physics Ch 15–20",
-              "desc": "MEDIUM FOCUS • Week 4 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-19",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 7 Vectors (Ex 7.4–7.6)",
-              "desc": "HIGH FOCUS • Week 5 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Numericals Practice Ch 15–18",
-              "desc": "MEDIUM FOCUS • Week 5 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: میں روزے سے ہوں",
-              "desc": "LIGHT FOCUS • Week 5 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-20",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 8 Mathematical Induction & Binomial Theorem",
-              "desc": "HIGH FOCUS • Week 5 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "English: Tobacco",
-              "desc": "MEDIUM FOCUS • Week 5 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Pakistan Studies: قومی یکجہتی اور سیاسی ہم آہنگی",
-              "desc": "LIGHT FOCUS • Week 5 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-21",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Physics Numericals Practice Ch 19–22",
-              "desc": "HIGH FOCUS • Week 5 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Computer Science Ch 6 Functions",
-              "desc": "MEDIUM FOCUS • Week 5 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu: شروع قصے کا",
-              "desc": "LIGHT FOCUS • Week 5 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-22",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 9 Fundamentals of Trigonometry Revision",
-              "desc": "HIGH FOCUS • Week 5 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Ch 23–25 Quick Review",
-              "desc": "MEDIUM FOCUS • Week 5 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "English: The Sea",
-              "desc": "LIGHT FOCUS • Week 5 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-23",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 10 Trigonometric Identities (Ex 10.1–10.3)",
-              "desc": "HIGH FOCUS • Week 5 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Pakistan Studies: تفریح - سیاحت",
-              "desc": "MEDIUM FOCUS • Week 5 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "CS Ch 7 Database Concepts",
-              "desc": "LIGHT FOCUS • Week 5 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-24",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "FULL REVISION: Mathematics Ch 1–5",
-              "desc": "HIGH FOCUS • Week 6 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Past Paper Practice (Ch 15–20)",
-              "desc": "MEDIUM FOCUS • Week 6 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu Important Lessons Revision",
-              "desc": "LIGHT FOCUS • Week 6 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-25",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Mathematics Ch 10 (Ex 10.4–10.6 + Review)",
-              "desc": "HIGH FOCUS • Week 6 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Physics Past Paper Practice (Ch 21–26)",
-              "desc": "MEDIUM FOCUS • Week 6 - Sun",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-26",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "TEST: Mathematics Ch 1–5",
-              "desc": "HIGH FOCUS • Week 6 - Mon",
-              "resources": {
-                "link": "",
-                "notes": "Time yourself 3 hours"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:40 AM",
-              "title": "Review & Mark Mathematics Test",
-              "desc": "LIGHT FOCUS • Week 6 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-27",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "TEST: Physics Ch 15–20",
-              "desc": "HIGH FOCUS • Week 6 - Tue",
-              "resources": {
-                "link": "",
-                "notes": "Time yourself 3 hours"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:40 AM",
-              "title": "Review & Mark Physics Test",
-              "desc": "LIGHT FOCUS • Week 6 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-28",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "TEST: Mathematics Ch 6–10",
-              "desc": "HIGH FOCUS • Week 6 - Wed",
-              "resources": {
-                "link": "",
-                "notes": "Time yourself 3 hours"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:40 AM",
-              "title": "Review & Mark Mathematics Test",
-              "desc": "LIGHT FOCUS • Week 6 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-29",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "TEST: Physics Ch 21–26",
-              "desc": "HIGH FOCUS • Week 6 - Thu",
-              "resources": {
-                "link": "",
-                "notes": "Time yourself 3 hours"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:40 AM",
-              "title": "Review & Mark Physics Test",
-              "desc": "LIGHT FOCUS • Week 6 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-30",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Computer Science Full Chapters Quick Revision",
-              "desc": "HIGH FOCUS • Week 6 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "English Important Essays & Stories Revision",
-              "desc": "MEDIUM FOCUS • Week 6 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Urdu Important Nazms & Ghazals",
-              "desc": "LIGHT FOCUS • Week 6 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-01-31",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Pakistan Studies Full Book Quick Revision",
-              "desc": "HIGH FOCUS • Week 7 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Weak Areas: Mathematics (as per tests)",
-              "desc": "MEDIUM FOCUS • Week 7 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "Weak Areas: Physics (as per tests)",
-              "desc": "LIGHT FOCUS • Week 7 - Sat",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-01",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 11:00 PM",
-            "title": "FULL MOCK TEST: Physics Paper",
-            "desc": "HIGH FOCUS • Week 7 - Sun",
-            "resources": {
-              "link": "",
-              "notes": "3 hours timed"
-            }
-          }]
-        },
-        {
-          "date": "2026-02-02",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 11:00 PM",
-            "title": "FULL MOCK TEST: Mathematics Paper",
-            "desc": "HIGH FOCUS • Week 7 - Mon",
-            "resources": {
-              "link": "",
-              "notes": "3 hours timed"
-            }
-          }]
-        },
-        {
-          "date": "2026-02-03",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Review & Analysis of Physics & Math Mocks",
-              "desc": "HIGH FOCUS • Week 7 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Computer Science Past Paper Practice",
-              "desc": "MEDIUM FOCUS • Week 7 - Tue",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-04",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "FINAL REVISION: Mathematics Key Chapters",
-              "desc": "HIGH FOCUS • Week 7 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "FINAL REVISION: Physics Key Chapters",
-              "desc": "MEDIUM FOCUS • Week 7 - Wed",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-05",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "FINAL REVISION: English Important Questions",
-              "desc": "HIGH FOCUS • Week 7 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "FINAL REVISION: Urdu Important Portions",
-              "desc": "MEDIUM FOCUS • Week 7 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "light",
-              "time": "01:20 AM - 02:20 AM",
-              "title": "FINAL REVISION: Pakistan Studies Key Topics",
-              "desc": "LIGHT FOCUS • Week 7 - Thu",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-06",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "Computer Science Complete Revision + MCQs",
-              "desc": "HIGH FOCUS • Week 7 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            },
-            {
-              "type": "medium",
-              "time": "11:20 PM - 01:00 AM",
-              "title": "Formula & Important Points Revision (All Subjects)",
-              "desc": "MEDIUM FOCUS • Week 7 - Fri",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-07",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 11:00 PM",
-            "title": "LIGHT REVISION + CONFIDENCE BUILDING",
-            "desc": "HIGH FOCUS • Week 8 - Sat",
-            "resources": {
-              "link": "",
-              "notes": "Only key formulas, concepts, MCQs"
-            }
-          }]
-        },
-        {
-          "date": "2026-02-08",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 11:00 PM",
-            "title": "FINAL LIGHT REVISION + Mental Preparation",
-            "desc": "HIGH FOCUS • Week 8 - Sun",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-09",
-          "slots": [{
-              "type": "high",
-              "time": "09:00 PM - 11:00 PM",
-              "title": "LAST MOMENT REVISION: Mathematics & Physics",
-              "desc": "HIGH FOCUS • Week 8 - Mon",
-              "resources": {
-                "link": "",
-                "notes": "Only strong & weak spots"
-              }
-            },
-            {
-              "type": "light",
-              "time": "11:20 PM - 12:30 AM",
-              "title": "Relax + Confidence Building",
-              "desc": "LIGHT FOCUS • Week 8 - Mon",
-              "resources": {
-                "link": "",
-                "notes": ""
-              }
-            }
-          ]
-        },
-        {
-          "date": "2026-02-10",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 11:00 PM",
-            "title": "VERY LIGHT REVISION + Rest",
-            "desc": "HIGH FOCUS • Week 8 - Tue",
-            "resources": {
-              "link": "",
-              "notes": "Just glance through formulas & key points"
-            }
-          }]
-        },
-        {
-          "date": "2026-02-11",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:30 PM",
-            "title": "LAST GLANCE + Mental Preparation",
-            "desc": "HIGH FOCUS • Week 8 - Wed",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-12",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:30 PM",
-            "title": "REST & LIGHT REVISION (only if needed)",
-            "desc": "HIGH FOCUS • Week 8 - Thu",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-13",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:30 PM",
-            "title": "REST DAY – Stay Calm",
-            "desc": "HIGH FOCUS • Week 8 - Fri",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-14",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "VERY LIGHT GLANCE – All the Best!",
-            "desc": "HIGH FOCUS • Week 8 - Sat",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-15",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "REST & POSITIVE VISUALIZATION",
-            "desc": "HIGH FOCUS • Week 8 - Sun",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-16",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "FINAL PREPARATION DAY",
-            "desc": "HIGH FOCUS • Week 8 - Mon",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-17",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "REST & CONFIDENCE",
-            "desc": "HIGH FOCUS • Week 8 - Tue",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-18",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "EXAM READY – Sleep Well",
-            "desc": "HIGH FOCUS • Week 8 - Wed",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-19",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "EXAM READY – Stay Positive",
-            "desc": "HIGH FOCUS • Week 8 - Thu",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-20",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "EXAM READY – All the Best!",
-            "desc": "HIGH FOCUS • Week 8 - Fri",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-21",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "EXAM READY – You can do it!",
-            "desc": "HIGH FOCUS • Week 8 - Sat",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        },
-        {
-          "date": "2026-02-22",
-          "slots": [{
-            "type": "high",
-            "time": "09:00 PM - 10:00 PM",
-            "title": "FINAL DAY BEFORE EXAMS – REST & CONFIDENCE",
-            "desc": "HIGH FOCUS • Week 8 - Sun",
-            "resources": {
-              "link": "",
-              "notes": ""
-            }
-          }]
-        }
-      ]
-      
+      // Generate roadmapData dynamically from schedule to ensure consistency
+      const roadmapData = schedule.map((day) => {
+        const dateObj = new Date(day.date);
+        const dateStr = dateObj.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        });
+
+        const getSubject = (slot) => {
+          if (!slot || !slot.title) return "-";
+          // Try to extract subject before colon, otherwise use first 2 words
+          const parts = slot.title.split(":");
+          if (parts.length > 1) return parts[0].trim();
+          return slot.title.split(" ").slice(0, 2).join(" ");
+        };
+
+        return {
+          left: getSubject(day.slots[0]),
+          date: dateStr,
+          right: getSubject(day.slots[1]),
+        };
+      });
+
       // Fast lookup map - O(1) access
       const scheduleMap = new Map();
-      schedule.forEach((item) => scheduleMap.set(item.date, item.slots));
+
+      schedule.forEach((item) => {
+        const key = item.date;
+        scheduleMap.set(key, item.slots);
+      });
+
+      const minDate = new Date(schedule[0].date);
+      const maxDate = new Date(schedule[schedule.length - 1].date);
       const roadmapBtn = document.getElementById("roadmapBtn");
       const roadmapModal = document.getElementById("roadmapModal");
       const closeRoadmap = document.getElementById("closeRoadmap");
@@ -3984,17 +2362,22 @@
         const options = {
           weekday: "long",
           month: "long",
-          day: "numeric"
+          day: "numeric",
         };
         return date.toLocaleDateString("en-US", options);
       };
-      const getDateKey = (date) => date.toISOString().split("T")[0];
+      const getDateKey = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
       const getSlotKey = (dateKey, index) => `${dateKey}|${index}`;
       const parseSlotKey = (key) => {
         const [dateKey, index] = key.split("|");
         return {
           dateKey,
-          index: parseInt(index)
+          index: parseInt(index),
         };
       };
       const updateDateDisplay = () => {
@@ -4002,12 +2385,10 @@
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const isToday = currentDate.getTime() === today.getTime();
-        dateDisplay.textContent = isToday ?
-          `📅 Today • ${dateStr}` :
-          `📅 ${dateStr}`;
+        dateDisplay.textContent = isToday
+          ? `📅 Today • ${dateStr}`
+          : `📅 ${dateStr}`;
         // Update button states
-        const minDate = new Date("2026-01-01");
-        const maxDate = new Date("2026-02-22");
         prevBtn.disabled = currentDate <= minDate;
         nextBtn.disabled = currentDate >= maxDate;
       };
@@ -4041,15 +2422,12 @@
         // Sort skipped slots by date
         const sortedSlots = Array.from(skippedSlots)
           .map((key) => {
-            const {
-              dateKey,
-              index
-            } = parseSlotKey(key);
+            const { dateKey, index } = parseSlotKey(key);
             const slot = scheduleMap.get(dateKey)?.[index];
             return {
               dateKey,
               index: parseInt(index),
-              slot
+              slot,
             };
           })
           .filter((item) => item.slot)
@@ -4082,7 +2460,8 @@
         try {
           updateSyncStatus("syncing", "Syncing to cloud...");
           const response = await fetch(
-            `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`, {
+            `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`,
+            {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
@@ -4124,7 +2503,8 @@
         try {
           updateSyncStatus("syncing", "Loading from cloud...");
           const response = await fetch(
-            `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`, {
+            `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`,
+            {
               headers: {
                 "X-Master-Key": JSONBIN_API_KEY,
               },
@@ -4242,19 +2622,13 @@
               if (action === "complete") {
                 markAsCompleted(key);
               } else if (action === "resource") {
-                const {
-                  dateKey,
-                  index
-                } = parseSlotKey(key);
+                const { dateKey, index } = parseSlotKey(key);
                 const slot = scheduleMap.get(dateKey)?.[index];
                 if (slot?.resources?.link) {
                   window.open(slot.resources.link, "_blank");
                 }
               } else if (action === "timer") {
-                const {
-                  dateKey,
-                  index
-                } = parseSlotKey(key);
+                const { dateKey, index } = parseSlotKey(key);
                 openTimerModal(dateKey, index);
               } else if (action === "skip") {
                 markAsSkipped(key);
@@ -4294,7 +2668,7 @@
         currentSlot = {
           slot: slots[index],
           index,
-          dateKey
+          dateKey,
         };
         const slot = slots[index];
         // Update modal
@@ -4336,49 +2710,64 @@
       }
 
       function startTimer(minutes, mode) {
+        if (!currentSlot) return;
+
         clearInterval(timerInterval);
+        timerInterval = null;
         remainingTime = minutes * 60;
         isPaused = false;
         currentMode = mode;
-        if (currentSlot) {
+
+        if (mode === "study") {
           inProgressSlot = getSlotKey(currentSlot.dateKey, currentSlot.index);
         }
-        // Update UI
+
         timerLabel.textContent =
           mode === "study" ? "📚 Study Session" : "☕ Break Time";
         pauseBtn.disabled = false;
         stopBtn.disabled = false;
         pauseBtn.textContent = "⏸️ Pause";
-        // Update pomodoro cycle for study sessions
+
         if (mode === "study") {
           pomodoroCycle = Math.min(pomodoroCycle + 1, totalCycles);
           updateProgressBar();
         }
-        renderGrid();
+
         updateTimerDisplay();
+
         timerInterval = setInterval(() => {
           if (isPaused) return;
           remainingTime--;
           updateTimerDisplay();
+
           if (remainingTime <= 0) {
             clearInterval(timerInterval);
+            timerInterval = null;
             playAlarm();
             timerLabel.textContent = "Session Complete! 🎉";
-            // Auto-mark as completed if study session finished
+
             if (mode === "study" && currentSlot) {
               const slotKey = getSlotKey(
                 currentSlot.dateKey,
                 currentSlot.index
               );
               markAsCompleted(slotKey);
+              inProgressSlot = null;
             }
-            // Reset pomodoro cycle after all cycles
+
             if (mode === "study" && pomodoroCycle >= totalCycles) {
               pomodoroCycle = 0;
               updateProgressBar();
             }
+
+            pauseBtn.disabled = true;
+            stopBtn.disabled = true;
+            currentMode = null;
+            renderGrid();
           }
         }, 1000);
+
+        renderGrid();
       }
 
       function updateTimerDisplay() {
@@ -4393,6 +2782,7 @@
 
       function resetTimer() {
         clearInterval(timerInterval);
+        timerInterval = null;
         remainingTime = 0;
         isPaused = false;
         currentMode = null;
@@ -4427,9 +2817,22 @@
         updateDateDisplay();
         renderGrid();
       });
-      studyBtn.addEventListener("click", () => startTimer(45, "study"));
-      breakBtn.addEventListener("click", () => startTimer(15, "break"));
+      studyBtn.addEventListener("click", () => {
+        if (!currentSlot) return;
+        if (timerInterval && remainingTime > 0 && !isPaused) {
+          resetTimer();
+        }
+        startTimer(45, "study");
+      });
+      breakBtn.addEventListener("click", () => {
+        if (!currentSlot) return;
+        if (timerInterval && remainingTime > 0 && !isPaused) {
+          resetTimer();
+        }
+        startTimer(15, "break");
+      });
       pauseBtn.addEventListener("click", () => {
+        if (!timerInterval) return;
         isPaused = !isPaused;
         pauseBtn.textContent = isPaused ? "▶️ Resume" : "⏸️ Pause";
         timerLabel.textContent = isPaused ? "⏸️ Paused" : "Timer Running";
@@ -4437,6 +2840,7 @@
       stopBtn.addEventListener("click", resetTimer);
       completeBtn.addEventListener("click", () => {
         if (currentSlot) {
+          resetTimer();
           const slotKey = getSlotKey(currentSlot.dateKey, currentSlot.index);
           markAsCompleted(slotKey);
           closeModal();
@@ -4444,6 +2848,7 @@
       });
       skipBtn.addEventListener("click", () => {
         if (currentSlot) {
+          resetTimer();
           const slotKey = getSlotKey(currentSlot.dateKey, currentSlot.index);
           markAsSkipped(slotKey);
           closeModal();
@@ -4472,5 +2877,4 @@
       loadProgress(); // This will call renderGrid() when done
     </script>
   </body>
-
 </html>
